@@ -47,6 +47,23 @@ Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Keypress function to direct player
+player.handleInput = function(keypress){
+
+    if(keypress === 'left' && this.x >= 100){
+        this.x -= 100;
+    }
+    if(keypress === 'up' && this.y >= 30){
+        this.y -= 82.5;
+    }
+    if(keypress === 'right' && this.x <= 305){
+        this.x += 100;
+    }
+    if(keypress === 'down' && this.y <= 350){
+        this.y += 82.5;
+    }
+};
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
