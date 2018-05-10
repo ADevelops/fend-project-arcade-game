@@ -1,13 +1,22 @@
+// ***** CLASSIC ARCADE GAME CLONE *****
+
+/*
+ *** AVIOD ENEMIES ***
+ */
+
+// Declare enemy variables
+let emeny,
+    enemyPosition = [60, 140, 220], // Position "y" where the enemies will are created
+    allEnemies = [];
+
 // Enemies our player must avoid
 let Enemy = function(x, y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-    this.x = x;
+    // The image/sprite for the enemies
+    this.sprite = 'images/enemy-bug.png';
+    // Variables applied to each of the instances
+    this.x = x; // x and y coordinates
     this.y = y;
     this.speed = speed;
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
 };
 
 // Update the enemy's position, required method for game
@@ -19,10 +28,16 @@ Enemy.prototype.update = function(dt) {
     this.x += this.speed * dt;
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+// Function to randomly place the emeny
+enemyPosition.forEach(function(posY) {
+    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 512));
+    allEnemies.push(enemy);
+});
+
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -37,9 +52,8 @@ let Player = function(x, y, speed){
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let allEnemies = [];
-let player = new Player(200,400);
 
+let player = new Player(200,400);
 player.update = function(dt) {
 };
 
