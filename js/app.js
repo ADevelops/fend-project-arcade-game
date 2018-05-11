@@ -4,19 +4,19 @@
  *** AVIOD ENEMIES ***
  */
 
-// Declare enemy variables
+// Enemy variables
 let emeny,
     enemyPosition = [61, 144, 227], // Position "y" where the enemies will are created
     allEnemies = [];
 
 // Enemies our player must avoid
 let Enemy = function(x, y, speed) {
-    // The image/sprite for the enemies
-    this.sprite = 'images/enemy-bug.png';
     // Variables applied to each of the instances
     this.x = x; // x and y coordinates
     this.y = y;
-    this.speed = speed;
+    this.speed = speed; // Speed of the emeny
+    // The image/sprite for the enemies
+    this.sprite = 'images/enemy-bug.png';
 };
 
 // Update the enemy's position, required method for game
@@ -48,23 +48,22 @@ Enemy.prototype.render = function() {
  *** PLAYER FUNCTIONALITY ***
  */
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-let Player = function(x, y,){
-    this.x = x;
+// Player variables
+let Player = function(x, y,) {  // player moves along x, y axis
+    // Variables applied to each of the instances
+    this.x = x; // x and y coordinates
     this.y = y;
+    // The image/sprite of the player
     this.sprite = 'images/char-boy.png';
 };
+let player = new Player(200,400); // Starting location of the player
 
-// Place the player object in a variable called player
-let player = new Player(200,400);
 
-player.update = function(dt) {
-};
-
+// Draw the player on the screen
 Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+player.update = function(dt) {
 };
 
 
