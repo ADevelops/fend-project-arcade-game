@@ -28,15 +28,16 @@ Enemy.prototype.update = function(dt) {
     this.x += this.speed * dt;
 };
 
+// Function to randomly place the emeny
+enemyPosition.forEach(function(posY) {
+    enemy = new Enemy(-150, posY, 100 + Math.floor(Math.random() * 550));
+    allEnemies.push(enemy);
+});
+
 // Draw the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-// Function to randomly place the emeny
-enemyPosition.forEach(function(posY) {
-    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 512));
-    allEnemies.push(enemy);
-});
 
 
 // Now write your own player class
