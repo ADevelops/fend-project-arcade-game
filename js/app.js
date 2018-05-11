@@ -6,7 +6,7 @@
 
 // Declare enemy variables
 let emeny,
-    enemyPosition = [60, 140, 220], // Position "y" where the enemies will are created
+    enemyPosition = [61, 144, 227], // Position "y" where the enemies will are created
     allEnemies = [];
 
 // Enemies our player must avoid
@@ -25,7 +25,7 @@ Enemy.prototype.update = function(dt) {
     // Multiplies the speed by the dt parameter on the x axis
     this.x += this.speed * dt;
 
-    // Enemy position rest are moving of the screen
+    // Repositioe the enemy they leave the page 
     if (this.x >= 505) { // Canvas is 505 wide
         this.x = -150;   // Enemy are 100 wide
         this.speed = 100 + Math.floor(Math.random() * 550);
