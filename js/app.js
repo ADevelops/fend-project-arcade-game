@@ -69,9 +69,9 @@ Player.prototype.render = function(){
 
 
 /*
- *** Key press lister - Supplied by Udacity ***
+ *** Keypress lister - Supplied by Udacity ***
  */ 
-// Key presses are sent to the Player.handleInput() method.
+// Keypresses are sent to the Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
