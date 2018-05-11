@@ -63,7 +63,16 @@ let player = new Player(200,400); // Starting location of the player
 Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+// Called everytime the players position changes
 player.update = function(dt) {
+    // Player position will be reset after reaching the top water area
+    if (this.y < 0) {
+        setTimeout(() => {
+            this.x = 200;
+            this.y = 400;
+        }, 500);
+    }
 };
 
 
