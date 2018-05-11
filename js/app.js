@@ -22,10 +22,14 @@ let Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    // Multiplies the speed by the dt parameter on the x axis
     this.x += this.speed * dt;
+
+    // Enemy position rest are moving of the screen
+    if (this.x >= 505) { // Canvas is 505 wide
+        this.x = -150;   // Enemy are 100 wide
+        this.speed = 100 + Math.floor(Math.random() * 550);
+    };
 };
 
 // Function to randomly place the emeny
