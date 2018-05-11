@@ -25,7 +25,7 @@ Enemy.prototype.update = function(dt) {
     // Multiplies the speed by the dt parameter on the x axis
     this.x += this.speed * dt;
 
-    // Repositioe the enemy they leave the page 
+    // Reposition the enemy after they leave the page 
     if (this.x >= 505) { // Canvas is 505 wide
         this.x = -150;   // Enemy are 100 wide
         this.speed = 100 + Math.floor(Math.random() * 550);
@@ -44,27 +44,43 @@ Enemy.prototype.render = function() {
 };
 
 
+/*
+ *** PLAYER FUNCTIONALITY ***
+ */
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-let Player = function(x, y, speed){
+let Player = function(x, y,){
     this.x = x;
     this.y = y;
-    this.speed = speed;
     this.sprite = 'images/char-boy.png';
 };
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
 let player = new Player(200,400);
+
 player.update = function(dt) {
 };
 
 Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+
+/*
+ *** Key press lister - Supplied by Udacity ***
+ */ 
+// Key presses are sent to the Player.handleInput() method.
+document.addEventListener('keyup', function(e) {
+    var allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down'
+    };
+    player.handleInput(allowedKeys[e.keyCode]);
+});
 
 // Keypress function to direct player
 player.handleInput = function(keypress){
@@ -82,16 +98,3 @@ player.handleInput = function(keypress){
         this.y += 82.5;
     }
 };
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
-    };
-
-    player.handleInput(allowedKeys[e.keyCode]);
-});
