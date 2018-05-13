@@ -47,7 +47,7 @@ Enemy.prototype.render = function() {
 // Check if the enemy hits the player, bases on boundry boxes
 // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 Enemy.prototype.collisionDetector = function() {
-    // Create enemy and player boundry objects
+    // Create enemy and player objects
     let playerBox = {
         x: player.x,
         y: player.y,
@@ -60,14 +60,13 @@ Enemy.prototype.collisionDetector = function() {
         width: 60,
         height: 70
     };
-    // Check for boundry boxes collision
+    // Check for collision
     if (playerBox.x < enemyBox.x + enemyBox.width &&
         playerBox.x + playerBox.width > enemyBox.x &&
         playerBox.y < enemyBox.y + enemyBox.height &&
         playerBox.height + playerBox.y > enemyBox.y) {
-            console.log('collision');
             // Collision detected, reset player
-            this.resetPlayer();
+            this.resetPlayer(); // Line 95
     }
 };
 
