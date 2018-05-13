@@ -28,6 +28,7 @@ Enemy.prototype.update = function(dt) {
     // Reposition the enemy after they leave the page 
     if (this.x >= 505) { // Canvas is 505 wide
         this.x = -150;   // Enemy are 100 wide
+        //Speed of enemy
         this.speed = 100 + Math.floor(Math.random() * 550);
     };
 };
@@ -41,6 +42,34 @@ enemyPosition.forEach(function(posY) {
 // Draw the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+// Check if the enemy hits the player, bases on boundry boxes
+// https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+Enemy.prototype.collisionDetector = function() {
+    // Create enemy and player boundry objects
+    let playerBox = {
+        x: player.x,
+        y: player.y,
+        width: 50,
+        height: 40
+    };
+    let enemyBox = {
+        x: enemy.x,
+        y: enemy.y,
+        width: 60,
+        height: 70
+    };
+    // Check for boundry boxes collision
+    if (playerBox.x < enemyBox.x + enemyBox.width &&
+        playerBox.x + playerBox.width > enemyBox.x &&
+        playerBox.y < enemyBox.y + enemyBox.height &&
+        playerBox.height + playerBox.y > enemyBox.y) {
+            console.log('collision');
+            // Collision detected, reset player
+            player.x = 200;
+            player.y = 400;
+    }
 };
 
 
@@ -68,7 +97,7 @@ Player.prototype.render = function(){
 player.update = function(dt) {
     // Player position will be reset after reaching the top water area
     if (this.y < 0) {
-        setTimeout(() => {
+        setTimeout(function() {
             this.x = 200;
             this.y = 400;
         }, 500);
