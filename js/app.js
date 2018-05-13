@@ -44,32 +44,6 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Check if the enemy hits the player
-// https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-Enemy.prototype.collisionDetector = function() {
-    // Create enemy and player objects
-    let playerBox = {
-        x: player.x,
-        y: player.y,
-        width: 50,
-        height: 40
-    };
-    let enemyBox = {
-        x: enemy.x,
-        y: enemy.y,
-        width: 60,
-        height: 70
-    };
-    // Check for collision
-    if (playerBox.x < enemyBox.x + enemyBox.width &&
-        playerBox.x + playerBox.width > enemyBox.x &&
-        playerBox.y < enemyBox.y + enemyBox.height &&
-        playerBox.height + playerBox.y > enemyBox.y) {
-            // Collision detected, reset player
-            this.resetPlayer(); // Line 95
-    }
-};
-
 
 /*
  *** PLAYER FUNCTIONALITY ***
@@ -105,6 +79,14 @@ player.update = function(dt) {
             this.resetPlayer();
         }, 500);
     }
+        // Check for collision
+        if (player.x < enemy.x + 60 &&
+            player.x + 50 > enemy.x &&
+            player.y < enemy.y + 40 &&
+            40 + player.y > enemy.y) {
+                // Collision detected, reset player
+                this.resetPlayer(); // Line 95
+        }
 };
 
 
