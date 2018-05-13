@@ -44,7 +44,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Check if the enemy hits the player, bases on boundry boxes
+// Check if the enemy hits the player
 // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 Enemy.prototype.collisionDetector = function() {
     // Create enemy and player objects
