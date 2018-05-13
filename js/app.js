@@ -65,7 +65,6 @@ Enemy.prototype.collisionDetector = function() {
         playerBox.x + playerBox.width > enemyBox.x &&
         playerBox.y < enemyBox.y + enemyBox.height &&
         playerBox.height + playerBox.y > enemyBox.y) {
-            console.log('collision');
             // Collision detected, reset player
             player.x = 200;
             player.y = 400;
