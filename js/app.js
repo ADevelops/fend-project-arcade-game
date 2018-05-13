@@ -65,9 +65,9 @@ Enemy.prototype.collisionDetector = function() {
         playerBox.x + playerBox.width > enemyBox.x &&
         playerBox.y < enemyBox.y + enemyBox.height &&
         playerBox.height + playerBox.y > enemyBox.y) {
+            console.log('collision');
             // Collision detected, reset player
-            player.x = 200;
-            player.y = 400;
+            this.resetPlayer();
     }
 };
 
@@ -92,13 +92,18 @@ Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Reset player to starting position
+Player.prototype.resetPlayer = function() {
+    this.x = 200;
+    this.y = 400;
+}
+
 // Called everytime the players position changes
 player.update = function(dt) {
     // Player position will be reset after reaching the top water area
     if (this.y < 0) {
-        setTimeout(function() {
-            this.x = 200;
-            this.y = 400;
+        setTimeout(() => {
+            this.resetPlayer();
         }, 500);
     }
 };
