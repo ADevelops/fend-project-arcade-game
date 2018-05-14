@@ -29,16 +29,16 @@ Enemy.prototype.update = function(dt) {
         this.x = -150;   // Enemy are 100 wide
         //Speed of enemy
         this.speed = 100 + Math.floor(Math.random() * 550);
-    };
+    }
 
-    // Check for enemy hitting player
+    // Collision with eney detector
     if (player.x < this.x + 80 &&
         player.x + 80 > this.x &&
         player.y < this.y + 60 &&
         60 + player.y > this.y) {
-            // Hit detected, reset player
+            // Collision detected, reset player
             player.resetPlayer();
-    };
+    }
 };
 
 // Function to randomly place the emeny
