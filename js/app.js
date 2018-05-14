@@ -38,6 +38,9 @@ Enemy.prototype.update = function(dt) {
         60 + player.y > this.y) {
             // Collision detected, reset player
             player.resetPlayer();
+            //Decrease score
+            score -= 15;
+            document.querySelector('.score').innerHTML = score;
     }
 };
 
@@ -104,7 +107,7 @@ document.addEventListener('keyup', function(e) {
         38: 'up',
         39: 'right',
         40: 'down'
-    };
+    }
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
