@@ -5,8 +5,7 @@
  */
 
 // Enemy variables
-let emeny,
-    enemyPosition = [61, 144, 227], // Position "y" where the enemies will are created
+let enemyPosition = [61, 144, 227], // Position "y" where the enemies will are created
     allEnemies = [];
 
 // Enemies our player must avoid
@@ -30,6 +29,15 @@ Enemy.prototype.update = function(dt) {
         this.x = -150;   // Enemy are 100 wide
         //Speed of enemy
         this.speed = 100 + Math.floor(Math.random() * 550);
+    };
+
+    // Check for enemy hitting player
+    if (player.x < this.x + 80 &&
+        player.x + 80 > this.x &&
+        player.y < this.y + 60 &&
+        60 + player.y > this.y) {
+            // Hit detected, reset player
+            player.resetPlayer();
     };
 };
 
@@ -79,14 +87,6 @@ player.update = function(dt) {
             this.resetPlayer();
         }, 500);
     }
-        // Check for collision
-        if (player.x < enemy.x + 60 &&
-            player.x + 50 > enemy.x &&
-            player.y < enemy.y + 40 &&
-            40 + player.y > enemy.y) {
-                // Collision detected, reset player
-                this.resetPlayer(); // Line 95
-        }
 };
 
 
