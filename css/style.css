@@ -1,13 +1,26 @@
 body {
     text-align: center;
+    margin: 0 10% 0 10%;
 }
 
-header {
+header h1 {
+    width: 100%;
+    padding-top: 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5em;
+    color: red;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(255,48,48,1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(255,48,48,1);
+    box-shadow: 10px 10px 5px 0px rgba(255,48,48,1);
+
+}
+
+panel {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
     justify-content: center;
-    margin-top: -25px;
+    margin-bottom: -80px;
     color: red;
 }
 
