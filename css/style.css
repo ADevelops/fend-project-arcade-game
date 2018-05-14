@@ -1,6 +1,9 @@
-body {
+body {  
+    min-width: 600px;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    margin: 0 100px 0 100px;
 }
 
 header h1 {
@@ -12,39 +15,44 @@ header h1 {
     -webkit-box-shadow: 10px 10px 5px 0px rgba(255,48,48,1);
     -moz-box-shadow: 10px 10px 5px 0px rgba(255,48,48,1);
     box-shadow: 10px 10px 5px 0px rgba(255,48,48,1);
-
 }
 
 panel {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: -80px;
     color: red;
 }
 
 .score-title {
-    width: 10%;
+    width: 30%;
+    margin-right: -50px;
 }
 
 .score {
-    width: 10%;
+    width: 20%;
     padding-top: 5px;
+
 }
 
 .lives-title {
-    width: 10%;
+    width: 20%;
+    
 }
 
 .lives {
-    width: 10%;
+    width: 30%;
     padding-top: 5px;
+    margin-left: -50px;
+    align-items: right;
 }
 
 .lives ul {
     display: flex;
     flex-wrap: nowrap;
+    justify-content: center;
     list-style-type: none;
     padding: 0;
 }
@@ -54,4 +62,8 @@ panel {
     height: 70px;
     margin-top: -100px
 
+}
+
+canvas {
+    max-width: 600px;
 }
