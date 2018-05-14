@@ -2,7 +2,7 @@ body {
     text-align: center;
 }
 
-footer {
+header {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
