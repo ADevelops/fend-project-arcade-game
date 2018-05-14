@@ -5,8 +5,8 @@
  */
 
 // Enemy variables
-let enemyPosition = [61, 144, 227], // Position "y" where the enemies will are created
-    allEnemies = [];
+let enemyPosition = [61, 144, 227]; // Position "y" where the enemies will are created
+let allEnemies = [];
 
 // Enemies our player must avoid
 let Enemy = function(x, y, speed) {
@@ -58,6 +58,7 @@ Enemy.prototype.render = function() {
  */
 
 // Player variables
+let score = 0;
 let Player = function(x, y,) {  // player moves along x, y axis
     // Variables applied to each of the instances
     this.x = x; // x and y coordinates
@@ -86,6 +87,9 @@ player.update = function(dt) {
         setTimeout(() => {
             this.resetPlayer();
         }, 500);
+        // Increment score
+        score++;
+        document.querySelector('.score').innerHTML = score;
     }
 };
 
