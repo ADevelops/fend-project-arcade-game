@@ -35,10 +35,10 @@ Enemy.prototype.update = function (dt) {
     }
 
     // Collision with eney detector
-    if (player.x < this.x + 80 &&
-        player.x + 80 > this.x &&
-        player.y < this.y + 60 &&
-        60 + player.y > this.y) {
+    if (player.x < this.x + 70 &&
+        player.x + 70 > this.x &&
+        player.y < this.y + 50 &&
+        50 + player.y > this.y) {
         // Collision detected, reset player
         player.resetPlayer();
         //Decrease score
