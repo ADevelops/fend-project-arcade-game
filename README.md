@@ -27,7 +27,7 @@ I added further functionality to enhance the game, i.e. a scoring lives function
 How to load the game:
 
 1. Clone or download the game repo
-    * https://github.com/ADevelops/fend-project-arcade-game
+   * https://github.com/ADevelops/fend-project-arcade-game
 2. Load the index.html file in a browser
 3. Play and enjoy
 
@@ -38,12 +38,12 @@ Alternatively, click [here](https://github.com/ADevelops/fend-project-arcade-gam
 * Move the character with the arrow keys; up, down, left, right
 * Move across the path, avoiding the bugs
 * If you are hit by a bug you will lose a life
-    * 3 lives in total
+  * 3 lives in total
 * The goal is to reach the water at the other side of the path
-    * Reaching the water will award you 30 points
+  * Reaching the water will award you 30 points
         * You will lose 15 points when hit by a bug
 * After losing all 3 lives you will be presented with your total score
-    * The game will refresh to play again
+  * The game will refresh to play again
 
 **Have fun and enjoy; but above all, **Watch Out For Those Sneaky Bugs****
 
@@ -52,11 +52,11 @@ Alternatively, click [here](https://github.com/ADevelops/fend-project-arcade-gam
 *Possible features to be implemeted at a later date.*
 
 * Special objects; possibly include:
-    * Key
-    * Gems
-    * Heart
-    * Rock
-    * Additional characters
+  * Key
+  * Gems
+  * Heart
+  * Rock
+  * Additional characters
 * Improved end game, a modal with further game stats
 * Optional timer function
 * Score board
