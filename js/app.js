@@ -40,7 +40,7 @@ Enemy.prototype.update = function (dt) {
         player.y < this.y + 50 &&
         50 + player.y > this.y) {
         // Collision detected, reset player
-        player.resetPlayer();
+    player.resetPlayer();
         //Decrease score
         score -= 15;
         document.querySelector('.score').innerHTML = score;
